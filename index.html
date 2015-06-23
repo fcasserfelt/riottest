@@ -1,0 +1,52 @@
+<!doctype html5>
+
+<html>
+  <head>
+    <title>RiotControl Demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  </head>
+
+  <body>
+
+    <todoapp></todoapp>
+    
+    <a href="https://github.com/jimsparkman/RiotControl">View on GitHub</a>
+
+    <script src="node_modules/riot/riot.min.js"></script>
+    <script src="node_modules/riotcontrol/riotcontrol.js"></script>
+    <script src="todostore.js"></script>
+    <script src="todoapp.js"></script> 
+    <script src="todo.js"></script>
+    <script src="home.js"></script>
+    <script src="navigation.js"></script>
+    
+
+    <script>
+      var todoStore = new TodoStore() // Create a store instance.
+      RiotControl.addStore(todoStore) // Register the store in central dispatch.
+
+      riot.route(function(collection, id, action) {
+
+        switch(collection) {
+            case 'about':
+                riot.mount('div#main', 'about', id)
+                break;
+            case 'spark':
+                riot.mount('div#main', 'spark', id)
+                break;
+            case 'home':
+                riot.mount('div#main', 'home', id)
+                break;
+            default:
+                riot.mount('div#main', 'home', id)
+        }
+
+      })
+
+      riot.mount('todoapp') // Kickoff the Riot app.
+      riot.mount('div#main', 'home')
+    </script>
+
+  </body>
+
+</html>

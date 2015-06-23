@@ -1,0 +1,13 @@
+{
+  "name": "spark",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "riot": "^2.1.0",
+    "riotcontrol": "^0.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-riot": "^0.2.15"
+  }
+}
